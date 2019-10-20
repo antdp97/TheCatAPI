@@ -22,7 +22,7 @@ export default class BreedInfo extends React.Component{
                 <hr />
                 <p>Origin: {origin}</p>
                 <p>Life Span: {life_span}</p>
-                <p>Weight:{weight.imperial}</p>
+                <p>Weight: {weight.imperial}</p>
                 <p>Read more about <a href={wikipedia_url}>{name}</a> on Wikipedia</p>
             </div>
         )

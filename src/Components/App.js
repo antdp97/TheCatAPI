@@ -20,7 +20,7 @@ function App() {
     </div> */}
   return (  
   <Router>
-    <div className="container">
+    <div className="">
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a className="nav-brand" href="#">
           <img src="https://api.thecatapi.com/favicon.ico" alt="TheCatApi" />TheCatApi

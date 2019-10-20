@@ -138,4 +138,3 @@ export default class PetList extends React.Component{
         )
     }
 }
-// description={breedDescription.description} name={breedDescription.name} character={breedDescription.temperament}
