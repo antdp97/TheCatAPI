@@ -12,15 +12,10 @@ import Breeds from './Breeds';
 
 function App() {
 
-  {/* <div className="App-container" style={{height:"100%"}}>
-      <header className="App-header text-center">
-        <h1 className="">Cats are cuteeee</h1>
-      </header>
-      <PetList />
-    </div> */}
   return (  
   <Router>
     <div className="">
+      {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a className="nav-brand" href="#">
           <img src="https://api.thecatapi.com/favicon.ico" alt="TheCatApi" />TheCatApi
@@ -38,6 +33,7 @@ function App() {
         </ul>
       </nav>
 
+    {/* Router */}
       <Switch>
           <Route path="/home">
             <HomePage />

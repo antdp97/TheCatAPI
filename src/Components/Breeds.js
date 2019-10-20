@@ -88,8 +88,7 @@ export default class PetList extends React.Component{
             breeds,
             breedDescription
         } = this.state;
-        // const backgroundURL = `https://image.freepik.com/free-vector/vector-background-paper-note-cute-cat_45130-344.jpg`;
-        //{/* backgroundImage:`url(${backgroundURL})` */}
+        
         return (
             <div className="container align-items-center" 
             style={{
