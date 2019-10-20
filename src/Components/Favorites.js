@@ -21,12 +21,12 @@ export default class PetList extends React.Component{
     }
 
     getFav(){
+        const url = "https://api.thecatapi.com/v1/favourites?sub_id="
         const apikey = "d3b46a82-a072-4b3a-8871-cef4ba075e36";
         const options = {
             headers:{'x-api-key': apikey},
         };
-
-        axios.get("https://api.thecatapi.com/v1/favourites?sub_id="+apikey+"&limit=5",options)
+        axios.get(url+apikey+"&limit=5",options)
         .then((res)=>{
             this.setState({
                 pet: res.data,
@@ -35,7 +35,7 @@ export default class PetList extends React.Component{
         
         })
         .catch((error)=>{
-            alert(error)
+            console.log(error);
         })
     }
     

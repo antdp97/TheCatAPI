@@ -24,7 +24,7 @@ export default class Pet extends React.Component{
         },
         options
         ).then((res)=>{
-            alert(res.data.message);
+            
         }).catch((err)=>{
             console.log(err);
         })
@@ -36,7 +36,7 @@ export default class Pet extends React.Component{
         } = this.props.animal;
 
         return(
-            <div>
+            <div className="text-center">
                 <div style={{padding:"10px 15px 10px 15px"}}>
                     <img src={url} style={{width:300,height:300}} alt="cute cat" className="rounded-circle img-thumbnail"/>
                 </div>                    

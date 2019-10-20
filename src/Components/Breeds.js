@@ -23,7 +23,8 @@ export default class PetList extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(`https://api.thecatapi.com/v1/breeds`).then((res)=>{
+        const url="https://api.thecatapi.com/v1/breeds";
+        axios.get(url).then((res)=>{
             this.setState({
                 breeds : res.data
             });
@@ -54,7 +55,6 @@ export default class PetList extends React.Component{
             this.findCatByBreed();
         });
         
-        
     }
 
     getBreedDescription(){
@@ -64,12 +64,10 @@ export default class PetList extends React.Component{
             breed_name
         } = this.state;
         axios.get(url+ breed_name[breed_query]).then((res)=>{
-            console.log(res);
             this.setState({
                 breedDescription: res.data[0],
             })
         })
-        console.log(this.state.breedDescription);
     }
 
     findCatByBreed(){

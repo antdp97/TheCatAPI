@@ -6,7 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 
-import PetList from './Components/HomePage';
+import HomePage from './Components/HomePage';
 import Favorites from './Components/Favorites';
 import Breeds from './Components/Breeds';
 
@@ -40,7 +40,7 @@ function App() {
 
       <Switch>
           <Route path="/home">
-            <PetList />
+            <HomePage />
           </Route>
           <Route path="/favorites">
             <Favorites />

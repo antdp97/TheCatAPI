@@ -18,7 +18,8 @@ export default class HomePage extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(`https://api.thecatapi.com/v1/breeds`).then((res)=>{
+        const url = `https://api.thecatapi.com/v1/breeds`;
+        axios.get(url).then((res)=>{
             this.setState({
                 breeds : res.data
             });

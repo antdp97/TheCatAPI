@@ -17,8 +17,6 @@ export default class FavCat extends React.Component{
         axios.delete(url + this.props.animal.id,
         options
         ).then((res)=>{
-            console.log(res);
-            alert("Removed");
             this.props.onRefresh();
         }).catch((err)=>{
             console.log(err);
@@ -30,7 +28,7 @@ export default class FavCat extends React.Component{
             url,
         } = this.props.animal.image;
         return(
-            <div>
+            <div className="text-center">
                 <div style={{padding:"10px 15px 10px 15px"}}>
                     <img src={url} style={{width:300,height:300}} alt="cute cat" className="rounded-circle img-thumbnail"/>
                 </div>                    
