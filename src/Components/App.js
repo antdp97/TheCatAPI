@@ -6,9 +6,9 @@ import {
   Link
 } from 'react-router-dom';
 
-import HomePage from './Components/HomePage';
-import Favorites from './Components/Favorites';
-import Breeds from './Components/Breeds';
+import HomePage from './HomePage';
+import Favorites from './Favorites';
+import Breeds from './Breeds';
 
 function App() {
 
