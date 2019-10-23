@@ -1,52 +1,26 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import HomePage from './Components/HomePage';
-import Favorites from './Components/Favorites';
-import Breeds from './Components/Breeds';
+import HomePage from "./Components/homepage/HomePage";
+import Favorites from "./Components/favourites/Favorites";
+import Breeds from "./Components/breeds/Breeds";
+import PageNotFound from "./PageNotFound";
+
+import NavBar from "./Components/common/NavBar";
 
 function App() {
-
-  return (  
-  <Router>
-    <div className="">
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a className="nav-brand" href="https://thecatapi.com/">
-          <img src="https://api.thecatapi.com/favicon.ico" alt="TheCatApi" />TheCatApi
-        </a>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to="/home">Home</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/favorites">Favorites</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/breed">Breeds</Link>
-          </li>
-        </ul>
-      </nav>
-
-    {/* Router */}
-      <Switch>
-          <Route path="/home">
-            <HomePage />
-          </Route>
-          <Route path="/favorites">
-            <Favorites />
-          </Route>
-          <Route path="/breed">
-            <Breeds />
-          </Route>
+  return (
+    <div className="container-fluid">
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/favorites" component={Favorites} />
+          <Route path="/breed" component={Breeds} />
+          <Route component={PageNotFound} />
         </Switch>
+      </Router>
     </div>
-  </Router>
   );
 }
 
