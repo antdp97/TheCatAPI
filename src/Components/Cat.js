@@ -1,12 +1,22 @@
 import React from 'react';
 import axios from 'axios';
-
-export default class Pet extends React.Component{
+import BounceIn from './Animations/BounceIn';
+export default class Cat extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            isAdded : false,
+        }
         this.addToFavorite = this.addToFavorite.bind(this);
     }
-
+    
+    componentWillUpdate(){
+        if(this.state.isAdded === true){
+            this.setState({
+                isAdded:false
+            })
+        }
+    }
 
     addToFavorite(){
         const apikey = "d3b46a82-a072-4b3a-8871-cef4ba075e36";
@@ -21,7 +31,9 @@ export default class Pet extends React.Component{
         },
         options
         ).then((res)=>{
-
+            this.setState({
+                isAdded:true
+            })
         }).catch((err)=>{
             console.log(err);
         })
@@ -34,10 +46,16 @@ export default class Pet extends React.Component{
 
         return(
             <div className="text-center" style={{paddingBottom:30}}>
-                <div style={{padding:"10px 15px 10px 15px"}}>
-                    <img src={url} style={{width:300,height:300}} alt="cute cat" className="rounded-circle img-thumbnail"/>
-                </div>                    
-                <button className="btn btn-info" onClick={this.addToFavorite}>Add to Favourites</button>
+                <BounceIn>
+                    <div style={{padding:"10px 15px 10px 15px"}}>
+                        <img src={url} style={{width:225,height:225}} alt="cute cat" className="rounded-circle img-thumbnail"/>
+                    </div>  
+                </BounceIn>       
+                {
+                    this.state.isAdded === false ?
+                    <button className="btn btn-info" onClick={this.addToFavorite}>Add to Favourites</button>                    
+                    : <button className="btn btn-info" disabled>Added</button>
+                }
             </div>
         )
     }

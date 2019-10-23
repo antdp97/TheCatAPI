@@ -24,12 +24,8 @@ export default class HomePage extends React.Component{
                 breeds : res.data
             });
         });
-        this.findCatByFilter();
+        this.getCatData();
     };
-
-    UNSAFE_componentWillUpdate(){
-        // this.findCatByFilter();
-    }
 
     handleChange = (event) =>{
 
@@ -50,7 +46,7 @@ export default class HomePage extends React.Component{
 
 
     getCatData(){
-        axios.get(`https://api.thecatapi.com/v1/images/search?limit=6&order=Desc`).then((res)=>{
+        axios.get(`https://api.thecatapi.com/v1/images/search?limit=8&order=Desc`).then((res)=>{
             this.setState({
                 pet: res.data,
             });
@@ -74,7 +70,7 @@ export default class HomePage extends React.Component{
         const options={
             headers: {'x-api-key':"d3b46a82-a072-4b3a-8871-cef4ba075e36"}
         }
-        axios.get(`https://api.thecatapi.com/v1/images/search?limit=6&mime_types=${params}&breeds=${breedOption}`,options).then((res)=>{
+        axios.get(`https://api.thecatapi.com/v1/images/search?limit=8&mime_types=${params}&breeds=${breedOption}`,options).then((res)=>{
             this.setState({
                 pet: res.data,
             })
@@ -91,33 +87,29 @@ export default class HomePage extends React.Component{
         return (
             <div className="container align-items-center">
                 <h1>Let's get some Cat images</h1>
-                <div>
-                    {/* Selection of Breed Type */}
-                    <label htmlFor="breed-select">Choose the Breed type:
-                        <select onChange={this.handleChange} value={this.state.breedOption} className="form-control" id="breed-select">
-                            <option value="None">None</option>
-                            {
-                                breeds !== null ?
-                                breeds.map((breed_data,index)=>{
-                                    return(
-                                        <option key={index} value={breed_data.id}>{breed_data.name}</option>
-                                    )
-                                }):
-                                null
-                            }
-                        </select>
-                    </label>
-                </div>
+                {/* Selection of Breed Type */}
+                <label htmlFor="breed-select" style={{padding:"0 10px 0 10px"}}>Choose the Breed type:
+                    <select onChange={this.handleChange} value={this.state.breedOption} className="form-control" id="breed-select">
+                        <option value="None">None</option>
+                        {
+                            breeds !== null ?
+                            breeds.map((breed_data,index)=>{
+                                return(
+                                    <option key={index} value={breed_data.id}>{breed_data.name}</option>
+                                )
+                            }):
+                            null
+                        }
+                    </select>
+                </label>
                 {/* Selection of Image Type */}
-                <div>
-                    <label htmlFor="img-type">Image Type:
-                        <select onChange={this.handleImgType} value={this.state.imgType} className="form-control" id="img-type">
-                            <option value="None">None</option>
-                            <option value="static">Static</option>
-                            <option value="animated">Animated</option>                            
-                        </select>
-                    </label>                            
-                </div>
+                <label htmlFor="img-type" style={{padding:"0 10px 0 10px"}}>Image Type:
+                    <select onChange={this.handleImgType} value={this.state.imgType} className="form-control" id="img-type">
+                        <option value="None">None</option>
+                        <option value="static">Static</option>
+                        <option value="animated">Animated</option>                            
+                    </select>
+                </label>                            
                 <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}} id="flex-container">
                 {
                     pet !== null ?

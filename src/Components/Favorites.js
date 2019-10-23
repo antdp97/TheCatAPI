@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import FavCat from './FavCat';
 
-export default class PetList extends React.Component{
+export default class Favorites extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -42,8 +42,8 @@ export default class PetList extends React.Component{
     render(){
         const { pet } = this.state;
         return(
-            <div>
-                <h1>Your Favorites Pics</h1>
+            <div className="container">
+                <h1>This is Your favorites Cat images collection</h1>
                 <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap'}} id="favorite-container">
                 {   pet !== null ?
                     pet.map((animal ,index)=>{

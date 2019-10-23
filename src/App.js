@@ -6,9 +6,9 @@ import {
   Link
 } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import Favorites from './Favorites';
-import Breeds from './Breeds';
+import HomePage from './Components/HomePage';
+import Favorites from './Components/Favorites';
+import Breeds from './Components/Breeds';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     <div className="">
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a className="nav-brand" href="#">
+        <a className="nav-brand" href="https://thecatapi.com/">
           <img src="https://api.thecatapi.com/favicon.ico" alt="TheCatApi" />TheCatApi
         </a>
         <ul className="navbar-nav">
